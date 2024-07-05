@@ -216,7 +216,7 @@ static RPCHelpMan listwallets()
 static RPCHelpMan loadwallet()
 {
     return RPCHelpMan{"loadwallet",
-                "\nLoads a wallet from a wallet file or directory."
+                "\nLoads a wallet from a default wallet file or default directory or a absolute path in which a wallet.dat exists"
                 "\nNote that all wallet command-line options used when starting bitcoind will be"
                 "\napplied to the new wallet.\n",
                 {
@@ -236,6 +236,8 @@ static RPCHelpMan loadwallet()
                 RPCExamples{
                     HelpExampleCli("loadwallet", "\"test.dat\"")
             + HelpExampleRpc("loadwallet", "\"test.dat\"")
+			+ HelpExampleCli("loadwallet", "\"/Users/Joe/Wallets/\"")
+		    + HelpExampleRpc("loadwallet", "\"/Users/Joe/Wallets/\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
